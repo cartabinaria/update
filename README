@@ -1,0 +1,14 @@
+Bulk-patch all repos of csunibo.
+
+1. Create the file `patch.diff` via:
+
+$ git diff <last origin commit> > path/to/update/patch.diff
+
+2. Apply the patch with the given commit message:
+
+$ ./update <commit message>
+
+Suggestion:
+  remove all passwords from your ssh and gpg keys to run this.
+  They will be asked ~4 times for each repo.
+  In alternative run ssh and gpg agents to cache them.

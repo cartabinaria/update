@@ -1,0 +1,44 @@
+#!/bin/sh
+# set -ex
+
+repos="architettura-degli-elaboratori logica-per-informatica programmazione algebra-e-geometria algoritmi-e-strutture-di-dati analisi-matematica calcolo-numerico ottimizzazione-combinatoria calcolo-delle-probabilita-e-statistica tecnologie-web linguaggi-di-programmazione reti-di-calcolatori sistemi-operativi basi-di-dati fisica laboratorio-di-applicazioni-mobili storia-informatica-e-dei-dispositivi-di-calcolo strategia-aziendale"
+root=$PWD
+patch=$root/patch.diff
+
+if [ -z "$1" ]; then
+  echo "Usage: update <msg>"
+  exit 1
+fi
+
+if [ ! -e $patch ]; then
+  echo "$patch file not found. Create one with git diff"
+  exit 1
+fi
+
+mkdir -p repos
+
+for repo in $repos; do
+  printf "== Patching %s\n" $repo
+
+  dest="repos/$repo"
+  if [ ! -d $dest ]; then
+    printf "== Cloning %s\n" $repo
+    git clone git@github.com:csunibo/$repo.git $dest
+  fi
+
+  printf "== Bringing %s up to date\n" $repo
+  cd $dest
+  git pull
+  git reset --hard origin/main
+
+  printf "== Patching %s\n" $repo
+  patch -p1 < $patch
+  git add .
+  git commit -m "$1"
+
+
+  printf "== Pushing %s\n" $repo
+  git push
+
+  cd $root
+done
