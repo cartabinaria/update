@@ -1,7 +1,7 @@
 #!/bin/sh
 # set -ex
 
-repos="architettura-degli-elaboratori logica-per-informatica programmazione algebra-e-geometria algoritmi-e-strutture-di-dati analisi-matematica calcolo-numerico ottimizzazione-combinatoria calcolo-delle-probabilita-e-statistica tecnologie-web linguaggi-di-programmazione reti-di-calcolatori sistemi-operativi basi-di-dati fisica laboratorio-di-applicazioni-mobili storia-informatica-e-dei-dispositivi-di-calcolo strategia-aziendale"
+repos="architettura-degli-elaboratori logica-per-informatica programmazione algebra-e-geometria algoritmi-e-strutture-di-dati analisi-matematica calcolo-numerico ottimizzazione-combinatoria calcolo-delle-probabilita-e-statistica tecnologie-web linguaggi-di-programmazione reti-di-calcolatori sistemi-operativi basi-di-dati fisica laboratorio-di-applicazioni-mobili storia-informatica-e-dei-dispositivi-di-calcolo strategia-aziendale metodi-logici-per-la-filosofia"
 root=$PWD
 patch=$root/patch.diff
 
