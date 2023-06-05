@@ -1,7 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 # set -ex
 
-repos="architettura-degli-elaboratori logica-per-informatica programmazione algebra-e-geometria algoritmi-e-strutture-di-dati analisi-matematica calcolo-numerico ottimizzazione-combinatoria calcolo-delle-probabilita-e-statistica tecnologie-web linguaggi-di-programmazione reti-di-calcolatori sistemi-operativi basi-di-dati fisica laboratorio-di-applicazioni-mobili storia-informatica-e-dei-dispositivi-di-calcolo strategia-aziendale metodi-logici-per-la-filosofia laboratorio-sicurezza-informatica"
+repos="template"
+repos+=" architettura-degli-elaboratori logica-per-informatica programmazione"
+repos+=" algebra-e-geometria algoritmi-e-strutture-di-dati analisi-matematica"
+repos+=" calcolo-numerico ottimizzazione-combinatoria"
+repos+=" calcolo-delle-probabilita-e-statistica tecnologie-web"
+repos+=" linguaggi-di-programmazione reti-di-calcolatori sistemi-operativi"
+repos+=" basi-di-dati fisica laboratorio-di-applicazioni-mobili"
+repos+=" storia-informatica-e-dei-dispositivi-di-calcolo strategia-aziendale"
+repos+=" metodi-logici-per-la-filosofia laboratorio-sicurezza-informatica"
+repos+=" ing-analisi-matematica-2-t ing-matematica-applicata-t"
+repos+=" ing-fisica-generale-t ing-sistemi-operativi-t"
+repos+=" ing-economia-e-organizzazione-aziendale-t"
+repos+=" ing-laboratorio-amm-sistemi-t ing-fondamenti-di-telecomunicazioni-t"
+
 root=$PWD
 patch=$root/patch.diff
 
