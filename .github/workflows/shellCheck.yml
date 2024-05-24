@@ -1,8 +1,9 @@
-name: ShellCheck
+name: ShellCheckname: Check filenames
 on:
   push:
-    paths:
-      - "**.sh"
+    branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 
