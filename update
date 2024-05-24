@@ -36,7 +36,7 @@ for repo in $repos; do
   dest="repos/$repo"
   if [ ! -d $dest ]; then
     printf "== Cloning %s\n" $repo
-    git clone git@github.com:csunibo/$repo.git $dest
+    git clone --depth=1 git@github.com:csunibo/$repo.git $dest
   fi
 
   printf "== Bringing %s up to date\n" $repo
