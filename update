@@ -41,7 +41,7 @@ for repo in $repos; do
 
   printf "== Bringing %s up to date\n" $repo
   cd $dest
-  git pull
+  git fetch --depth=1
   git reset --hard origin/main
 
   printf "== Patching %s\n" $repo
