@@ -1,19 +1,8 @@
 #!/bin/bash
 # set -ex
 
-repos="template"
-repos+=" architettura-degli-elaboratori logica-per-informatica programmazione"
-repos+=" algebra-e-geometria algoritmi-e-strutture-di-dati analisi-matematica"
-repos+=" calcolo-numerico ottimizzazione-combinatoria"
-repos+=" calcolo-delle-probabilita-e-statistica tecnologie-web"
-repos+=" linguaggi-di-programmazione reti-di-calcolatori sistemi-operativi"
-repos+=" basi-di-dati fisica laboratorio-di-applicazioni-mobili"
-repos+=" storia-informatica-e-dei-dispositivi-di-calcolo strategia-aziendale"
-repos+=" metodi-logici-per-la-filosofia laboratorio-sicurezza-informatica"
-repos+=" ing-analisi-matematica-2-t ing-matematica-applicata-t"
-repos+=" ing-fisica-generale-t ing-sistemi-operativi-t"
-repos+=" ing-economia-e-organizzazione-aziendale-t"
-repos+=" ing-laboratorio-amm-sistemi-t ing-fondamenti-di-telecomunicazioni-t"
+repos="template-it template-en "
+repos+="$(jq -r '.[].url' < ./config/teachings.json)"
 
 root=$PWD
 patch=$root/patch.diff
