@@ -1,7 +1,7 @@
 #!/bin/bash
 # set -ex
 
-repos="template "
+repos="template-it template-en "
 repos+="$(jq -r '.[].url' < ./config/teachings.json)"
 
 root=$PWD
