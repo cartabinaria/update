@@ -12,7 +12,7 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-if [ ! -e $patch ]; then
+if [ ! -e "$patch" ]; then
   echo "$patch file not found. Create one with git diff"
   exit 1
 fi
@@ -20,27 +20,27 @@ fi
 mkdir -p repos
 
 for repo in $repos; do
-  printf "== Patching %s\n" $repo
+  printf "== Patching %s\n" "$repo"
 
   dest="repos/$repo"
-  if [ ! -d $dest ]; then
-    printf "== Cloning %s\n" $repo
-    git clone --depth=1 git@github.com:csunibo/$repo.git $dest
+  if [ ! -d "$dest" ]; then
+    printf "== Cloning %s\n" "$repo"
+    git clone --depth=1 "git@github.com:csunibo/$repo.git" "$dest"
   fi
 
-  printf "== Bringing %s up to date\n" $repo
-  cd $dest
+  printf "== Bringing %s up to date\n" "$repo"
+  cd "$dest" || exit 1
   git fetch --depth=1
   git reset --hard origin/main
 
-  printf "== Patching %s\n" $repo
-  patch -p1 < $patch
+  printf "== Patching %s\n" "$repo"
+  patch -p1 < "$patch"
   git add .
   git commit -m "$1"
 
 
-  printf "== Pushing %s\n" $repo
+  printf "== Pushing %s\n" "$repo"
   git push
 
-  cd $root
+  cd "$root" || exit 1
 done
