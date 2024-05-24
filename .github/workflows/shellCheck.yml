@@ -1,4 +1,4 @@
-name: ShellCheckname: Check filenames
+name: ShellCheck
 on:
   push:
     branches: [main]
